@@ -106,23 +106,6 @@ const employees = [
     let manager = employees.find((employee) => employee.managerId === undefined);
     let workers = employees.filter((employee) => employee.id !== manager.id);
   
-    const createTree = (employees, managerId) => {
-      let reports = [];
-  
-      employees.forEach((employee, index) => {
-        if (employee.managerId === managerId) {
-          workers = [ ...employees.slice(0, index), ...employees.slice(index + 1) ];
-  
-          reports.push({ ...employee, reports: createTree(workers, employee.id) });
-        }
-      });
-  
-      return reports;
-    };
-  
-    return { ...manager, reports: createTree(workers, manager.id) };
-  };
-  
   console.log(JSON.stringify(generateManagementTree(employees), null, 2));
   /*
   {
@@ -186,21 +169,7 @@ const employees = [
   const displayManagementTree = (managementTree) => {
     let level = 0;
     let result = '';
-  
-    const printTree = (managementTree, level) => {
-      result += '-'.repeat(level) + managementTree.name + '\n';
-  
-      if (managementTree.reports.length > 0) {
-        level++;
-        managementTree.reports.forEach((managementSubTree) => {
-          printTree(managementSubTree, level);
-        });
-      }
-    };
-  
-    printTree(managementTree, level);
-    console.log(result);
-  };
+
   
   displayManagementTree(
     generateManagementTree(employees)
