@@ -20,6 +20,12 @@ const spacer = (text) => {
 spacer('findexEmployeeByName Moe')
 // given a name and array of employees, return employee
 
+// I think you did a cmd +f/h for ind -> index because all these funcs names
+// got changed. Absolutely no issue right now, but be mindful of that moving
+// forward. it may bite you in unsuspecting ways!
+
+// good variable naming and capturing!
+// would it be possible to rewrite this using just array methods?
 const findexEmployeeByName = (name, employees) => {
   for (let i = 0; i < employees.length; i++) {
     let employee = employees[i]
@@ -35,6 +41,8 @@ spacer('')
 spacer('findexManagerFor Shep')
 //given an employee and a list of employees, return the employee who is the manager
 
+// good variable naming again!
+// same challenge, what array method would be most suitable for this if you were to rewrite it?
 const findexManagerFor = (employee, employees) => {
   for (let i = 0; i < employees.length; i++) {
     let manager = employees[i]
@@ -51,6 +59,9 @@ spacer('findexCoworkersFor Larry')
 
 //given an employee and a list of employees, return the employees who report to the same manager
 
+// I'm about to cry over your great variable names!
+// clear and they stand for what they mean!!
+// but I'm gonna nag you and say what array methods to reproduce this?
 const findexCoworkersFor = (employee, employees) => {
   let coworkers = []
   for (let i = 0; i < employees.length; i++) {
@@ -74,6 +85,8 @@ spacer('')
 spacer('findexManagementChain for moe')
 //given an employee and a list of employees, return a the management chain for that employee. The management chain starts from the employee with no manager with the passed in employees manager
 
+// good use of iteration!
+// a challenge would be trying to solve this using recursion if you're up to it
 const findexManagementChainForEmployee = (employee, employees) => {
   let currentEmployee = employee
   let chain = []
@@ -167,7 +180,7 @@ spacer('displayManagementTree')
 //given a tree of employees, generate a display which displays the hierarchy
 
 const displayManagementTree = (managementTree) => {
-  let level = 0
+  let level = 0 // <- good idea of using some kind of level to know where you're at for '-'
   let result = ''
 }
 
